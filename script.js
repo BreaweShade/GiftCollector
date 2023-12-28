@@ -117,14 +117,14 @@ function handleGift(giftElement) {
 async function startEscapeAnimation(giftElement) {
     // Получаем имя подарка из dataset
     const giftName = giftElement.dataset.name;
-    changeGiftImage(giftElement, '${giftName}_escape_0');
+    changeGiftImage(giftElement, `${giftName}_escape_0`);
     giftElement.style.animation = 'escape 7s forwards';
        
         for (let i=0; i<23; i++) {
             await sleep(150);
-            changeGiftImage(giftElement, '${giftName}_escape_1');
+            changeGiftImage(giftElement, `${giftName}_escape_1`);
             await sleep(150);
-            changeGiftImage(giftElement, '${giftName}_escape_2');
+            changeGiftImage(giftElement, `${giftName}_escape_2`);
         
     }
 }
