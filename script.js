@@ -114,17 +114,19 @@ function handleGift(giftElement) {
     }
 }
 
-function startEscapeAnimation(giftElement) {
+async function startEscapeAnimation(giftElement) {
     // Получаем имя подарка из dataset
     const giftName = giftElement.dataset.name;
-    changeGiftImage(giftElement, `${giftName}_escape_0`);
-    giftElement.style.animation = 'escape 2s forwards';
-
-    setTimeout(() => changeGiftImage(giftElement, `${giftName}_escape_1`), 1000);
-    setTimeout(() => {
-        changeGiftImage(giftElement, `${giftName}_escape_2`);
-        giftElement.remove();
-    }, 2000);
+    changeGiftImage(giftElement, '${giftName}_escape_0');
+    giftElement.style.animation = 'escape 7s forwards';
+       
+        for (let i=0; i<23; i++) {
+            await sleep(150);
+            changeGiftImage(giftElement, '${giftName}_escape_1');
+            await sleep(150);
+            changeGiftImage(giftElement, '${giftName}_escape_2');
+        
+    }
 }
 
 function changeGiftImage(giftElement, imageName) {
