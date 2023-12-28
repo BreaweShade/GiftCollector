@@ -1,0 +1,181 @@
+/* Стили для игрового экрана */ 
+#menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.background {
+    position: absolute;
+    height: 100%;
+    background-size: contain; /* Обеспечиваем правильное покрытие фона */
+    background-position: center; /* Центрирование изображения */
+    background-repeat: no-repeat; /* Предотвращаем повторение изображения */
+    z-index: -1;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    margin: 650px 0px;
+    cursor: pointer;
+}
+
+.menu-btn img {
+    width: 80px; /* Стандартный размер для кнопок */
+}
+
+#btn-start img {
+    width: 120px; /* Больший размер для кнопки 'Старт' */
+}
+
+#game-screen {
+    display: none;
+    width: 450px;
+    height: 800px;
+    border: 1px solid black;
+    position: relative;
+    background-image: url('img/game_bg.png');
+    background-position-x: center;
+    background-size: cover; /* Обеспечиваем правильное покрытие фона */
+    background-repeat: no-repeat; /* Предотвращаем повторение изображения */
+    margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+   /* Стили для персонажа */
+#character {
+    width: 150px;
+    height: 170px;
+    background-image: url('img/character.png');
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-40%);
+    margin-left: 0; /* Убираем margin-left */
+ }
+
+
+     /* Стили для подарков */
+.gift {
+    width: auto;
+    min-width: 80px;
+    height: auto;
+    min-height: 80px;
+    background-size: cover;
+    position: absolute;
+    animation: fall 5s linear infinite;
+ }
+
+/* Стили для сердечек жизни (heart) */
+.heart {
+         width: 50px;
+         height: 50px;
+         background-image: url('img/heart.png');
+         background-size: cover;
+         position: absolute;
+}
+@keyframes boosterFall {
+    0% {
+        top: -50px;
+    }
+    100% {
+        top: 100vh;
+    }
+}
+/* Стили для бустеров */
+.booster {
+         width: 70px;
+         height: 70px;
+         position: absolute;
+         background-size: cover;
+         animation: fall 4s linear infinite;
+}
+@keyframes moveToCharacter {
+           to {
+               transform: translate(50px, 300px); /* Предполагаемые координаты персонажа */
+           }
+}
+
+#timer {
+         position: absolute;
+         top: 150px; /* Расположение отсчета времени */
+         width: 100%;
+         text-align: center;
+         font-size: 50px; /* Размер шрифта */
+         color: gold; /* Цвет текста */
+         font-family: 'Impact', sans-serif; /* Шрифт */
+         text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); /* Тень для текста */
+
+         /* Пример градиента для текста */
+         background: -webkit-linear-gradient(gold, red);
+         -webkit-text-fill-color: transparent;
+}
+   
+     /* Анимация падения */
+@keyframes fall {
+         0% {
+             transform: translateY(-100%);
+         }
+         100% {
+             transform: translateY(100vh);
+         }
+}
+   
+/* Анимация убегания подарка */
+@keyframes escape {
+          to {
+             transform: translateX(-100vw); /* Подарок двигается строго влево */
+           }
+}
+
+/* Стили для счетчика очков */
+#score-counter {
+   top: 10px;
+   right: 10px;
+   position: absolute;
+   font-family: "Montserrat"; /* Используем мультяшный шрифт (можно изменить на другой мультяшный шрифт) */
+   font-weight: bold;
+   text-transform: uppercase;
+   font-size: 18px;
+   color: black; 
+   background-color: white; /* Белый фон */
+   padding: 5px 10px; /* Подложка со смещением */
+   border-radius: 10px; /* Скругленные углы */
+}
+#game-over-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white; /* Полупрозрачный черный фон */
+}
+
+#game-over-screen h1 {
+    color: yellow;
+    text-shadow: 2px 2px 4px red; /* Объемный желтый текст с красной тенью */
+    font-size: 3em;
+    margin-bottom: 10px 0;
+}
+
+#game-over-screen img {
+    width: 20%; /* Измените размер в соответствии с вашими потребностями */
+    height: auto;
+    margin-bottom: 5px 0;
+}
+
+#btn-restart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}

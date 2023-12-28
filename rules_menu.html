@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Игра для Телеграма</title>
+    
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('img/menu/rules_bg.png') no-repeat center center fixed;
+            width: 100%;
+            align-items: center;
+            position: absolute;
+            height: 100%;
+            background-size: contain; /* Обеспечиваем правильное покрытие фона */
+            background-position: center; /* Центрирование изображения */
+            background-repeat: no-repeat; /* Предотвращаем повторение изображения */
+            z-index: -1;
+
+        }
+        
+        .content {
+            position: absolute;
+            text-align: left;
+            padding: 20px;
+            font-size: 20px;
+            max-width: 250px;
+            left: 50%; /* Центрирование по горизонтали */
+            top: 50%; /* Центрирование по вертикали */
+            transform: translate(-50%, -50%); /* Смещаем блок к центру экрана */
+            line-height: 1.6;
+            color: black;
+            text-shadow: 3px 3px 5px #000;
+            z-index: 2;
+            font-weight: 700;
+            
+        }
+
+        .menu-buttons {
+            text-align: center;
+            margin-top: 600px; /* Отступ сверху для кнопки */
+        }
+
+        #btn-back {
+            background: none; /* Убираем фон */
+            border: none; /* Убираем границы */
+            padding: 0; /* Убираем внутренние отступы */
+            cursor: pointer; /* Курсор в виде указателя для интерактивности */
+        }
+
+        #btn-back img {
+            width: 140px; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="menu-buttons">
+            <button id="btn-back" >
+                <a href="index.html"><img src="img/menu/btn_back.png" alt="Back"></a>
+            </button>
+        </div>
+    </div>
+    <audio id="menu-music" loop>
+        <source src="path/to/your/musicfile.mp3" type="audio/mpeg"> <!-- Укажите путь к вашему аудио файлу -->
+    </audio>
+</body>
+</html>

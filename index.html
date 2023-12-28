@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Игра для Телеграма</title>
+    <link rel="stylesheet" href="style.css">
+      
+</head>
+<body>
+    <div id="menu">
+       <img src="img/menu/menu_bg.png" class="background" alt="Menu Background" style="position: absolute; z-index: -2;">
+        <div class="menu-buttons">
+            <button id="btn-zero" class="menu-btn"><img src="img/menu/btn_zero.png" alt="About"></button>
+            <button id="btn-start" class="menu-btn"><img src="img/menu/btn_start.png" alt="Start Game"></button>
+            <button id="btn-rules" class="menu-btn"><img src="img/menu/btn_rules.png" alt="Rules"></button>
+        </div>
+    </div>
+    <audio id="menu-music" loop>
+        <source src="path/to/your/musicfile.mp3" type="audio/mpeg"> <!-- Укажите путь к вашему аудио файлу -->
+    </audio>
+
+   <div id="game-screen"> <!--фон-->
+        
+        <div id="score-counter">
+          Счет: <span id="score">0</span>
+        </div> 
+      
+        <div id="character"></div>
+        <!-- Подарки (gift) -->
+        <div class="gift"></div>
+        <div class="heart" style="top: 10px; left: 10px; "></div>
+        <div class="heart" style="top: 10px; left: 40px;"></div>
+        <div class="heart" style="top: 10px; left: 70px; ;"></div>
+        
+        <!-- Бустеры (booster) -->
+        <div class="booster"></div>
+    </div>
+    <div id="game-over-screen" style="display: none;">
+        <h1>ИГРА ОКОНЧЕНА</h1>
+        <img src="img/Game_over_nobg.png" alt="Game Over">
+        <button id="btn-restart"><img src="img/menu/btn_restart.png" alt="Restart"></button>
+    </div>
+ 
+     <script src="script.js"></script>
+</body>
+</html>
