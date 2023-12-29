@@ -1,54 +1,50 @@
 document.getElementById('game-screen').addEventListener('touchstart', handleTouchStart, false);
 document.getElementById('game-screen').addEventListener('touchmove', handleTouchMove, false);
 
-let xDown = null;                                                       
-let yDown = null;
-
-function getTouches(evt) {
-  return evt.touches || evt.originalEvent.touches;
-}                                                     
+let xDown = null;
 
 function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];                                      
-    xDown = firstTouch.clientX;                                      
-    yDown = firstTouch.clientY;                                      
+    xDown = evt.touches[0].clientX;
 };                                                
 
 function handleTouchMove(evt) {
-    if (!xDown || !yDown) {
+    if (!xDown) {
         return;
     }
 
-    var xUp = evt.touches[0].clientX;                                    
-    var yUp = evt.touches[0].clientY;
-
+    var xUp = evt.touches[0].clientX;
     var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
 
-    if (Math.abs(xDiff) > Math.abs(yDiff)) { /* Определение горизонтального свайпа */
-        if ( xDiff > 0 ) {
-            /* left swipe */ 
-            moveCharacterLeft();
+    if (Math.abs(xDiff) > 0) { /* проверка на горизонтальный свайп */
+        if (xDiff > 0) {
+            /* свайп влево */ 
+            moveCharacter(-20);
         } else {
-            /* right swipe */
-            moveCharacterRight();
+            /* свайп вправо */
+            moveCharacter(20);
         }                       
     } 
+
     /* сброс значений */
     xDown = null;
-    yDown = null;                                             
 };
 
-function moveCharacterLeft() {
-    let characterPos = parseInt(character.style.left, 10);
-    character.style.left = Math.max(50, characterPos - 20) + 'px';
+function moveCharacter(deltaX) {
+    const characterElement = document.getElementById('character');
+    const gameScreenElement = document.getElementById('game-screen');
+    let characterPos = characterElement.getBoundingClientRect().left - gameScreenElement.getBoundingClientRect().left;
+    let newCharacterPos = characterPos + deltaX;
+
+    // Проверка на выход за пределы игрового экрана
+    if (newCharacterPos < 0) {
+        newCharacterPos = 0;
+    } else if (newCharacterPos > gameScreenElement.clientWidth - characterElement.offsetWidth) {
+        newCharacterPos = gameScreenElement.clientWidth - characterElement.offsetWidth;
+    }
+
+    characterElement.style.left = newCharacterPos + 'px';
 }
 
-function moveCharacterRight() {
-    let characterPos = parseInt(character.style.left, 10);
-    let gameScreenRect = document.getElementById('game-screen').getBoundingClientRect();
-    character.style.left = Math.min(gameScreenRect.width - character.offsetWidth + 50, characterPos + 20) + 'px';
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     const btnStart = document.getElementById('btn-start');

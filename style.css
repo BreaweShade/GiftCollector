@@ -47,12 +47,7 @@
         width: 130px; /* Немного меньший размер для кнопки 'Старт' */
     }
 
-    #btn-restart {
-        background: none;
-        border: none;
-        cursor: pointer;
-        width: 40%;
-    }
+
 }
 #game-screen {
     display: none;
@@ -77,8 +72,8 @@
 }
 
 .gift, .booster {
-    width: 50px; /* Меньший размер подарков и бустеров */
-    height: 60px;
+    width: 70px; /* Меньший размер подарков и бустеров */
+    height: 70px;
     background-size: cover;
     position: absolute;
     animation: fall 5s linear infinite;
@@ -163,3 +158,9 @@
     margin-bottom: 5px 0;
 }
 
+#btn-restart {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}

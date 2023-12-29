@@ -22,35 +22,37 @@
             z-index: -1;
 
         }
-        
-        .content {
-            position: absolute;
-            text-align: left;
-            padding: 20px;
-            font-size: 20px;
-            max-width: 250px;
-            left: 50%; /* Центрирование по горизонтали */
-            top: 50%; /* Центрирование по вертикали */
-            transform: translate(-50%, -50%); /* Смещаем блок к центру экрана */
-            line-height: 1.6;
-            color: black;
-            text-shadow: 3px 3px 5px #000;
-            z-index: 2;
-            font-weight: 700;
-            
-        }
 
-        .menu-buttons {
-            text-align: center;
-            margin-top: 600px; /* Отступ сверху для кнопки */
-        }
+         .content {
+             position: relative;
+             text-align: left;
+             padding: 30px;
+             font-size: 18px;
+             max-width: 350px;
+             left: 50%;
+             top: 75%;
+             transform: translate(-25%);
+             line-height: 1.6;
+             color: white;
+             text-shadow: 3px 3px 5px #000;
+             font-weight: 900;
+             text-transform: uppercase;
+         }
 
-        #btn-back {
-            background: none; /* Убираем фон */
-            border: none; /* Убираем границы */
-            padding: 0; /* Убираем внутренние отступы */
-            cursor: pointer; /* Курсор в виде указателя для интерактивности */
-        }
+         .menu-buttons {
+             background: none;
+             border: none;
+             margin: 30px 0; /* Небольшой отступ между кнопками */
+             cursor: pointer;
+         }
+
+         #btn-back {
+             background: none;
+             border: none;
+             cursor: pointer;
+             position: absolute;
+             bottom: 10%; /* Position 10% above the bottom */
+         }
 
         #btn-back img {
             width: 140px; 
