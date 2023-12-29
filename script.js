@@ -151,8 +151,8 @@ function handleGift(giftElement) {
             const gameScreenRect = document.getElementById('game-screen').getBoundingClientRect();
             if (giftElement.getBoundingClientRect().bottom >= gameScreenRect.bottom) {
                // Когда подарок достигает "пола", запускаем анимацию "escape"
-                giftElement.style.animation = 'escape 10s forwards';
-                giftElement.style.top = '88%';
+                giftElement.style.animation = 'escape 7s forwards';
+                giftElement.style.top = '80%';
                 loseLife();
                 startEscapeAnimation(giftElement);
             } else {
