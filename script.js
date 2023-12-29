@@ -1,3 +1,55 @@
+document.getElementById('game-screen').addEventListener('touchstart', handleTouchStart, false);
+document.getElementById('game-screen').addEventListener('touchmove', handleTouchMove, false);
+
+let xDown = null;                                                       
+let yDown = null;
+
+function getTouches(evt) {
+  return evt.touches || evt.originalEvent.touches;
+}                                                     
+
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];                                      
+    xDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) { /* Определение горизонтального свайпа */
+        if ( xDiff > 0 ) {
+            /* left swipe */ 
+            moveCharacterLeft();
+        } else {
+            /* right swipe */
+            moveCharacterRight();
+        }                       
+    } 
+    /* сброс значений */
+    xDown = null;
+    yDown = null;                                             
+};
+
+function moveCharacterLeft() {
+    let characterPos = parseInt(character.style.left, 10);
+    character.style.left = Math.max(50, characterPos - 20) + 'px';
+}
+
+function moveCharacterRight() {
+    let characterPos = parseInt(character.style.left, 10);
+    let gameScreenRect = document.getElementById('game-screen').getBoundingClientRect();
+    character.style.left = Math.min(gameScreenRect.width - character.offsetWidth + 50, characterPos + 20) + 'px';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const btnStart = document.getElementById('btn-start');
     const btnZero = document.getElementById('btn-zero');

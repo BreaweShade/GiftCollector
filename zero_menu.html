@@ -7,55 +7,63 @@
         <style>
          @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap');
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
+           body {
+            font-family: 'Montserrat', sans-serif;            
             background: url('img/menu/zero_bg.png') no-repeat center center fixed;
-            width: 100%;
-            align-items: center;
-            position: absolute;
-            height: 100%;
-            background-size: contain; /* Обеспечиваем правильное покрытие фона */
-            background-position: center; /* Центрирование изображения */
-            background-repeat: no-repeat; /* Предотвращаем повторение изображения */
+            height: 100vh;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
             z-index: -1;
-
         }
-        
+
         .content {
-            position: absolute;
+            position: relative;
             text-align: left;
             padding: 30px;
             font-size: 18px;
             max-width: 350px;
-            left: 50%; /* Центрирование по горизонтали */
-            top: 50%; /* Центрирование по вертикали */
-            transform: translate(-50%, 40%); /* Смещаем блок к центру экрана */
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
             line-height: 1.6;
-            color: white;            
-            text-shadow: 3px 3px 5px #000;
-            z-index: 2;
+            color: white;
+            text-shadow: 3px 3px 5px #000;            
             font-weight: 900;
             text-transform: uppercase;
-            /*background: rgba(0, 0, 0, 0.3);*/
         }
-
+        
         .menu-buttons {
-            text-align: center;
-            margin-top: 20px; /* Отступ сверху для кнопки */
+            background: none;
+            border: none;
+            margin: 30px 0; /* Небольшой отступ между кнопками */
+            cursor: pointer;
         }
 
         #btn-back {
-            background: none; /* Убираем фон */
-            border: none; /* Убираем границы */
-            padding: 0; /* Убираем внутренние отступы */
-            cursor: pointer; /* Курсор в виде указателя для интерактивности */
+            background: none;
+            border: none;           
+            cursor: pointer;
+            position: absolute;
+            bottom: 10%;
         }
 
         #btn-back img {
             width: 140px; 
         }
+
+        @media screen and (max-width: 768px) {
+            #btn-back img {
+                width: 130px; /* Уменьшение размера кнопки для мобильных устройств */
+            }
+
+            .menu-buttons {
+            position: absolute;
+            bottom: 10%; /* Перемещение кнопок ниже на экране */
+             }
+        }
+
+
 
     </style>
 </head>
@@ -68,7 +76,7 @@
         </div>
     </div>
     <audio id="menu-music" loop>
-        <source src="path/to/your/musicfile.mp3" type="audio/mpeg"> <!-- Укажите путь к вашему аудио файлу -->
+        <source src="path/to/your/musicfile.mp3" type="audio/mpeg"> 
     </audio>
 </body>
 </html>

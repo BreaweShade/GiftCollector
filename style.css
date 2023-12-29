@@ -6,78 +6,90 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .background {
     position: absolute;
-    height: 100%;
-    background-size: contain; /* Обеспечиваем правильное покрытие фона */
-    background-position: center; /* Центрирование изображения */
-    background-repeat: no-repeat; /* Предотвращаем повторение изображения */
+    height: 100vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
 .menu-btn {
     background: none;
     border: none;
-    margin: 650px 0px;
+    margin: 30px 0; /* Небольшой отступ между кнопками */
     cursor: pointer;
 }
 
 .menu-btn img {
-    width: 80px; /* Стандартный размер для кнопок */
+    width: 120px; /* Стандартный размер для кнопок */
 }
 
 #btn-start img {
-    width: 120px; /* Больший размер для кнопки 'Старт' */
+    width: 150px; /* Больший размер для кнопки 'Старт' */
 }
+/* Медиа-запросы для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .menu-buttons {
+        position: absolute;
+        bottom: 10%; /* Перемещение кнопок ниже на экране */
+    }
 
+    .menu-btn img {
+        width: 100px; /* Немного меньший размер кнопок для мобильных устройств */
+    }
+
+    #btn-start img {
+        width: 130px; /* Немного меньший размер для кнопки 'Старт' */
+    }
+
+    #btn-restart {
+        background: none;
+        border: none;
+        cursor: pointer;
+        width: 40%;
+    }
+}
 #game-screen {
     display: none;
-    width: 450px;
-    height: 800px;
-    border: 1px solid black;
+    width: 100%; /* Адаптация под ширину экрана */
+    height: 100vh; /* Адаптация под высоту экрана */
     position: relative;
     background-image: url('img/game_bg.png');
-    background-position-x: center;
-    background-size: cover; /* Обеспечиваем правильное покрытие фона */
-    background-repeat: no-repeat; /* Предотвращаем повторение изображения */
-    margin: 0 auto; /* Центрирование по горизонтали */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-   /* Стили для персонажа */
 #character {
-    width: 150px;
-    height: 170px;
+    width: 100px; /* Адаптация размера персонажа */
+    height: 120px;
     background-image: url('img/character.png');
     background-size: cover;
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-40%);
-    margin-left: 0; /* Убираем margin-left */
- }
+    bottom: 10%; /* Расположение от нижнего края */
+    left: 50%; /* Расположение от центра */
+    transform: translateX(-50%); /* Центрирование персонажа */
+}
 
-
-     /* Стили для подарков */
-.gift {
-    width: auto;
-    min-width: 80px;
-    height: auto;
-    min-height: 80px;
+.gift, .booster {
+    width: 50px; /* Меньший размер подарков и бустеров */
+    height: 60px;
     background-size: cover;
     position: absolute;
     animation: fall 5s linear infinite;
- }
+}
 
-/* Стили для сердечек жизни (heart) */
 .heart {
-         width: 50px;
-         height: 50px;
-         background-image: url('img/heart.png');
-         background-size: cover;
-         position: absolute;
+    width: 50px; /* Меньший размер сердечек */
+    height: 50px;
+    background-image: url('img/heart.png');
+    background-size: cover;
+    position: absolute;
 }
 @keyframes boosterFall {
     0% {
@@ -87,33 +99,11 @@
         top: 100vh;
     }
 }
-/* Стили для бустеров */
-.booster {
-         width: 70px;
-         height: 70px;
-         position: absolute;
-         background-size: cover;
-         animation: fall 4s linear infinite;
-}
+
 @keyframes moveToCharacter {
            to {
                transform: translate(50px, 300px); /* Предполагаемые координаты персонажа */
            }
-}
-
-#timer {
-         position: absolute;
-         top: 150px; /* Расположение отсчета времени */
-         width: 100%;
-         text-align: center;
-         font-size: 50px; /* Размер шрифта */
-         color: gold; /* Цвет текста */
-         font-family: 'Impact', sans-serif; /* Шрифт */
-         text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); /* Тень для текста */
-
-         /* Пример градиента для текста */
-         background: -webkit-linear-gradient(gold, red);
-         -webkit-text-fill-color: transparent;
 }
    
      /* Анимация падения */
@@ -173,9 +163,3 @@
     margin-bottom: 5px 0;
 }
 
-#btn-restart {
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 40%;
-}
